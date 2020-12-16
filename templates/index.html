@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tensor Flow</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" > -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="#4db6ac teal lighten-2">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">&nbsp;Tensor Image</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Sass</a></li>
+        <li><a href="#">Components</a></li>
+        <li><a href="#">Javascript</a></li>
+        <li><a href="#">Mobile</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="#">Sass</a></li>
+    <li><a href="#">Components</a></li>
+    <li><a href="#">Javascript</a></li>
+    <li><a href="#">Mobile</a></li>
+  </ul>
+   
+
+<div class="container">
+
+
+
+
+  <div class="row">
+   <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-info">
+      <div class="panel-body">
+
+          <form action="upload" enctype="multipart/form-data" class="form-horizontal" method="post">
+            <!-- <input type="file" name="image" class="form-control" /> -->
+            <div class="file-field input-field">
+            <div class="btn">
+              <span>Select File</span>
+              <input type="file" name="file" accept="image/*">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+            <br/>
+            <button type="submit" class="btn btn-block #f4511e deep-orange darken-1 btn-upload" disabled=true required>Get Text</button>
+               <br />
+             <br />
+             <div class="center-align">
+               <div class="progress" style="display: none;">
+                <div class="indeterminate"></div>
+              </div>
+             </div>
+
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+
+  $("input").change(function(){
+    $('.btn-upload').attr('disabled', false);
+  });
+        
+    $(document).ready(function() {
+        $(".btn-upload").click(function(){
+            $('.progress').show();
+
+            $(".form-horizontal").ajaxForm({target: '.center-align'}).submit();
+        });
+    }); 
+</script>
+
+
+</body>
+</html>
